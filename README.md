@@ -1,1 +1,1 @@
-# GCSU-Rugby-Team-
+# GCSU-Rugby-Team
