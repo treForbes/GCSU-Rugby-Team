@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
+    <div style="height:auto; width:auto;">
+    <?php
+    // figure out styling for the header/footer
+        require_once 'NEWRugbyTeamPageFormat.php';
+        $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+        $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   
+        $pageArr= explode("/",$pageURI); 
+        $testint=0;
+        $currentPage  = $pageArr[count($pageArr)-1]; 
+        pageHeader("Home","./images/GCSURugbyClub.png",$arr, $currentPage);
+    ?>
+    
     <div class="container">
         <h2>Contact Us</h2>
         <div class="row">
@@ -55,5 +67,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
