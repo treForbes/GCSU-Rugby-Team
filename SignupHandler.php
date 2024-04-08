@@ -38,9 +38,10 @@ session_start();
   pageHeader("Home","./images/GCSURugbyClub.png",$arr, $currentPage);
   ?>
   
+   Hello
    
 
   </div>   
 </body>
 </html>
->>>>>>> waiting-for-review
+
