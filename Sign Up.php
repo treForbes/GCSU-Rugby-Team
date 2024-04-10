@@ -21,7 +21,7 @@ session_start();
   
     <?php
   
-    require_once 'NEWRugbyTeamPageFormat.php';
+    require_once 'RugbyTeamPageFormat.php';
   //   if(isset($_SERVER['player'])){
   //   $arr=array("Home","About Us","Scheduler","Logout","Sign Up","ConTact US","OverView");
   // } else{
@@ -50,48 +50,48 @@ session_start();
   */
   
     echo "<div class=\"container-fluid\">";
-    echo ""
-  ?>
+ 
+  
+echo "
+<div class=\"container\">
+    <form action=\"./SignupHandler.php\" method=\"post\" onsubmit=\"event.preventDefault(); validateSignup()\">
+      <label class=\"form-label\" for=\"fname\">First Name</label>
+      <input class=\"form-control\" placeholder=\"First Name\" type=\"text\" Id=\"fname\" name=\"fname\" onblur=\"validateName(this)\">
 
-<div class="container">
-    <form action="./SignupHandler.php" method="post">
-      <label class="form-label" for="fname">First Name</label>
-      <input class="form-control" placeholder="First Name" type="text" Id="fname" name="fname">
+      <label class=\"form-label\" for=\"lname\">Last Name</label>
+      <input class=\"form-control\" placeholder=\"Last Name\" type=\"text\" Id=\"lname\" name=\"lname\" onblur=\"validateName(this)\">
 
-      <label class="form-label" for="lname">Last Name</label>
-      <input class="form-control" placeholder="Last Name" type="text" Id="lname" name="lname">
+      <label class=\"form-label\" for=\"email\">Student Email</label>
+      <input class=\"form-control\" placeholder=\"firstname.lastname@bobcats.gcsu.edu\" type=\"text\" Id=\"email\" name=\"email\" aria-descirbedby=\"emaildescription\" onblur=\"validateEmail(this)\">
 
-      <label class="form-label" for="email">Student Email</label>
-      <input class="form-control" placeholder="firstname.lastname@bobcats.gcsu.edu" type="text" Id="email" name="email" aria-descirbedby="emaildescription">
-
-      <label class="form-label" for="password1">Password</label>
-      <input class="form-control" placeholder="Password" type="text" Id="password1" name="password1" aria-descirbedby="passworddescription1">
-      <div id="passworddescription1" class="form-text">
+      <label class=\"form-label\" for=\"password1\">Password</label>
+      <input class=\"form-control\" placeholder=\"Password\" type=\"text\" Id=\"password1\" name=\"password1\" aria-descirbedby=\"passworddescription1\" onblur=\"validatePassword(this)\">
+      <div id=\"passworddescription1\" class=\"form-text\">
         Your password must contain at least one uppercase letter, lowercase letter, number, and special character
       </div> 
       
-      <label class="form-label" for="password2">Confirm Password</label>
-      <input class="form-control" placeholder="Password" type="text" Id="password2" name="password2" aria-descirbedby="passworddescription2">
-      <div id="passworddescription2" class="form-text">
+      <label class=\"form-label\" for=\"password2\">Confirm Password</label>
+      <input class=\"form-control\" placeholder=\"Password\" type=\"text\" Id=\"password2\" name=\"password2\" aria-descirbedby=\"passworddescription2\" onblur=\"validateConfirmPassword(this)\">
+      <div id=\"passworddescription2\" class=\"form-text\">
 
-      <label class="form-label" for="gcid">GCID</label>
-      <input class="form-control" placeholder="Password" type="text" Id="gcid" name="gcid" aria-descirbedby="gciddescription">
-      <div id="gciddescription" class="form-text"></div>
+      <label class=\"form-label\" for=\"gcid\">GCID</label>
+      <input class=\"form-control\" placeholder=\"Password\" type=\"text\" Id=\"gcid\" name=\"gcid\" aria-descirbedby=\"gciddescription\" onblur=\"validatGCID(this)\">
+      <div id=\"gciddescription\" class=\"form-text\"></div>
 
-      <label class="form-label" for="team">Select which team you are on</label>
-      <select class="form-select" id="team" name="team" aria-label="team">
+      <label class=\"form-label\" for=\"team\">Select which team you are on</label>
+      <select class=\"form-select\" id=\"team\" name=\"team\" aria-label=\"team\" onblur=\"preventDefault(this)\">
         <option selected>Select a Team</option>
-        <option value="men">Men's Rugby Team</option>
-        <option value="women">Women's Rugby  Team</option>d
+        <option value=\"men\">Men's Rugby Team</option>
+        <option value=\"women\">Women's Rugby  Team</option>d
       </select>
 
-      <input class="button btn btn-outline-dark" type="submit" id="submit" type="submit" value="Submit" >
+      <input class=\"button btn btn-outline-dark\" type=\"submit\" id=\"submit\" type=\"submit\" value=\"Submit\" >
      
-      </div> 
+      </div> ";
            
-
+?>
       
-
+<scipt type="text/javascript" src="./js/validate.js"></script>
   </div>   
 </body>
 </html>

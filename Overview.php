@@ -21,7 +21,7 @@ session_start();
   
     <?php
   
-    require_once 'NEWRugbyTeamPageFormat.php';
+    require_once 'RugbyTeamPageFormat.php';
   //   if(isset($_SERVER['player'])){
   //   $arr=array("Home","About Us","Scheduler","Logout","Sign Up","ConTact US","OverView");
   // } else{
