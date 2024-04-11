@@ -1,6 +1,9 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -14,7 +17,7 @@ session_start();
 <body>
 <div class="container-fluid">
     <?php
-    require_once 'NEWRugbyTeamPageFormat.php';
+    require_once 'RugbyTeamPageFormat.php';
     $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
     $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
     $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
