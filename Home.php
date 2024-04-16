@@ -18,7 +18,7 @@ ini_set('display_errors', 1);
 <div class="container-fluid">
     <?php
     require_once 'RugbyTeamPageFormat.php';
-    $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+    $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","SignUp");
     $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
     $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
     $currentPage  = $pageArr[count($pageArr)-1]; //this just selects the file name. E.g. "Home.php"

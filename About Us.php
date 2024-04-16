@@ -27,7 +27,7 @@ session_start();
   // } else{
   //   $arr=array("Home","About Us","Scheduler","Login","Sign Up","ConTact US","OverView");
   // }
-  $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+  $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","SignUp");
   $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
   $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
   $testint=0;

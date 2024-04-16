@@ -62,9 +62,9 @@ session_start();
   
     require_once 'RugbyTeamPageFormat.php';
   if(isset($_SERVER['player'])){
-   $arr=array("Home","About Us","Scheduler","Logout","Sign Up","ConTact US","OverView");
+   $arr=array("Home","About Us","Scheduler","Logout","SignUp","ConTact US","OverView");
  } else{
- $arr=array("Home","About Us","Scheduler","Login","Sign Up","ConTact US","OverView");
+ $arr=array("Home","About Us","Scheduler","Login","SignUp","ConTact US","OverView");
  }
  if(isset($_GET['errMsg'])){
     $m=$_GET['errMsg'];
