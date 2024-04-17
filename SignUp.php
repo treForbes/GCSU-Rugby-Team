@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +64,7 @@
     session_start();
     require_once 'RugbyTeamPageFormat.php';
     if (isset($_SESSION['player'])) {
-        $arr = array("Home", "About Us", "Scheduler", "Logout", "SignUp", "Contact Us", "Overview");
+        $arr = array("Home", "About Us", "Scheduler", "Login", "SignUp", "Contact Us", "Overview");
     } else {
         $arr = array("Home", "About Us", "Scheduler", "Login", "SignUp", "Contact Us", "Overview");
     }
