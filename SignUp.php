@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 
 <!DOCTYPE html>
@@ -80,7 +77,7 @@ session_start();
     <br>
     <div class="login-form">
         <h5 class="login-form-title">Signup</h5>
-        <form action="./SignupHandler.php" method="POST">
+        <form action="./SignupHandler.php" method="POST" onsubmit="return validateForm()">
             <label for="fname">First Name:</label>
             <input type="text" id="fname" name="fname" required>
             <label for="lname">Last Name:</label>
@@ -112,5 +109,66 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script>
+    // Function to validate the form inputs
+    function validateForm() {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var username = document.getElementById("username").value;
+        var pwd = document.getElementById("pwd").value;
+        var cpwd = document.getElementById("cpwd").value;
+        var position = document.getElementById("position").value;
+        var weight = document.getElementById("weight").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var team = document.getElementById("team").value;
+
+        // Simple validation examples, you can expand as needed
+        if (fname.trim() == "") {
+            alert("Please enter your first name");
+            return false;
+        }
+        if (lname.trim() == "") {
+            alert("Please enter your last name");
+            return false;
+        }
+        if (username.trim() == "") {
+            alert("Please enter a username");
+            return false;
+        }
+        // Add more validation rules for other fields as needed
+
+        // Example: Checking if passwords match
+        if (pwd !== cpwd) {
+            alert("Passwords do not match");
+            return false;
+        }
+
+        // Example: Validating email format
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address");
+            return false;
+        }
+
+        // Example: Validating phone number format
+        var phonePattern = /^\d{10}$/; // Assuming a 10-digit phone number
+        if (!phonePattern.test(phone)) {
+            alert("Please enter a valid 10-digit phone number");
+            return false;
+        }
+
+        // Add more validation rules as needed
+
+        // If all validations pass, return true to submit the form
+        return true;
+    }
+     function isValidEmail(email) {
+        var input = document.createElement('input');
+        input.type = 'email';
+        input.value = email;
+        return input.validity.valid;
+    }
+</script>
+
 </body>
 </html>
