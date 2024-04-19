@@ -157,9 +157,7 @@
             return false;
         }
 
-        // Add more validation rules as needed
-
-        // If all validations pass, return true to submit the form
+       
         return true;
     }
      function isValidEmail(email) {
