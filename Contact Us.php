@@ -11,8 +11,8 @@
     <div style="height:auto; width:auto;">
     <?php
         // figure out styling for the header/footer
-        require_once 'NEWRugbyTeamPageFormat.php';
-        $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","SignUp");
+        require_once 'RugbyTeamPageFormat.php';
+        $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
         $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   
         $pageArr= explode("/",$pageURI); 
         $testint=0;
