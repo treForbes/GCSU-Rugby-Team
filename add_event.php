@@ -50,23 +50,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     <?php endif; ?>
     <form method="post">
-        <div class="mb-3">
-            <label for="eventName" class="form-label">Event Name</label>
-            <input type="text" class="form-control" id="eventName" name="eventName" required>
-        </div>
-        <div class="mb-3">
-            <label for="eventDate" class="form-label">Event Date</label>
-            <input type="date" class="form-control" id="eventDate" name="eventDate" required>
-        </div>
-        <div class="mb-3">
-            <label for="eventTime" class="form-label">Event Time</label>
-            <input type="time" class="form-control" id="eventTime" name="eventTime" required>
-        </div>
-        <div class="mb-3">
-            <label for="eventDescription" class="form-label">Event Description</label>
-            <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="mb-3">
+        <label for="eventName" class="form-label">Event Name</label>
+        <input type="text" class="form-control" id="eventName" name="event_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="eventDate" class="form-label">Event Date</label>
+        <input type="date" class="form-control" id="eventDate" name="event_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="eventTime" class="form-label">Event Time</label>
+        <input type="time" class="form-control" id="eventTime" name="event_time" required>
+    </div>
+    <div class="mb-3">
+        <label for="eventDescription" class="form-label">Event Description</label>
+        <textarea class="form-control" id="eventDescription" name="event_description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
 </body>
