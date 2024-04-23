@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2024 at 05:49 PM
+-- Generation Time: Apr 21, 2024 at 09:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -48,6 +48,28 @@ CREATE TABLE `Coaches` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `event_id` int(11) NOT NULL,
+  `event_name` varchar(100) NOT NULL,
+  `event_date` date NOT NULL,
+  `event_time` time NOT NULL,
+  `event_description` text DEFAULT NULL,
+  `approval_status` enum('pending','approved') NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`event_id`, `event_name`, `event_date`, `event_time`, `event_description`, `approval_status`) VALUES
+(1, 'football', '2002-01-30', '14:34:00', 'fun', 'pending');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Matches`
 --
 
@@ -87,8 +109,7 @@ CREATE TABLE `Players` (
 --
 
 INSERT INTO `Players` (`player_id`, `username`, `password`, `position`, `weight`, `email`, `phone_number`, `is_admin`, `team_id`, `first_name`, `last_name`) VALUES
-(1, 'JacobPhillips', '8cb2237d0679ca88db6464eac60da96345513964', NULL, NULL, 'Jacob.Phillips@bobcats.gcsu.edu', '7705330223', '1', 1, 'Jacob', 'Phillips '),
-(3, 'AlexGerlach', '12345', NULL, NULL, NULL, NULL, '0', NULL, 'Alex', 'Gerlach');
+(1, 'JacobPhillips', '8cb2237d0679ca88db6464eac60da96345513964', NULL, NULL, 'Jacob.Phillips@bobcats.gcsu.edu', '7705330223', '1', 1, 'Jacob', 'Phillips ');
 
 -- --------------------------------------------------------
 
@@ -143,6 +164,12 @@ ALTER TABLE `Coaches`
   ADD PRIMARY KEY (`coach_id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`event_id`);
+
+--
 -- Indexes for table `Matches`
 --
 ALTER TABLE `Matches`
@@ -188,6 +215,12 @@ ALTER TABLE `Coaches`
   MODIFY `coach_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `Matches`
 --
 ALTER TABLE `Matches`
@@ -197,7 +230,7 @@ ALTER TABLE `Matches`
 -- AUTO_INCREMENT for table `Players`
 --
 ALTER TABLE `Players`
-  MODIFY `player_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `player_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Teams`
