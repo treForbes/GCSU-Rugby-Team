@@ -32,7 +32,6 @@ session_start();
   $currentPage  = $pageArr[count($pageArr)-1]; //this just selects the file name. E.g. "Home.php"
   pageHeader("Home","./images/GCSURugbyClub.png",$arr, $currentPage);
   ?>
-<<<<<<< HEAD
   <div id="calendar"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
