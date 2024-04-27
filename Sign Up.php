@@ -22,12 +22,11 @@ session_start();
     <?php
   
     require_once 'RugbyTeamPageFormat.php';
-  //   if(isset($_SERVER['player'])){
-  //   $arr=array("Home","About Us","Scheduler","Logout","Sign Up","ConTact US","OverView");
-  // } else{
-  //   $arr=array("Home","About Us","Scheduler","Login","Sign Up","ConTact US","OverView");
-  // }
-  $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+if(isset($_SESSION['player'])){
+        $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Logout");
+}else{
+    $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","SignUP");
+}
   $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
   $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
   $testint=0;

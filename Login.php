@@ -61,14 +61,15 @@ session_start();
     <?php
   
     require_once 'RugbyTeamPageFormat.php';
-  if(isset($_SERVER['player'])){
-   $arr=array("Home","About Us","Scheduler","Logout","SignUp","ConTact US","OverView");
- } else{
- $arr=array("Home","About Us","Scheduler","Login","SignUp","ConTact US","OverView");
- }
- if(isset($_GET['errMsg'])){
-    $m=$_GET['errMsg'];
-    echo "<h3 class=\"alert alert-warning\"> $m </h3>";
+  if(isset($_SESSION['admin'])) {
+    // User is logged in as an admin
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} elseif(isset($_SESSION['player'])) {
+    // User is logged in as a player
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} else {
+    // User is not logged in
+    $arr = array("Home","About Us","Scheduler","Login", "SignUp","ConTact US","OverView");
 }
 
   $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on

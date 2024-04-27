@@ -18,7 +18,16 @@ ini_set('display_errors', 1);
 <div class="container-fluid">
     <?php
     require_once 'RugbyTeamPageFormat.php';
-    $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","SignUp");
+    if(isset($_SESSION['admin'])) {
+    // User is logged in as an admin
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} elseif(isset($_SESSION['player'])) {
+    // User is logged in as a player
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} else {
+    // User is not logged in
+    $arr = array("Home","About Us","Scheduler","Login", "SignUp","ConTact US","OverView");
+}
     $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
     $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
     $currentPage  = $pageArr[count($pageArr)-1]; //this just selects the file name. E.g. "Home.php"

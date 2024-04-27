@@ -1,3 +1,9 @@
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,12 @@
     <?php
         // figure out styling for the header/footer
         require_once 'RugbyTeamPageFormat.php';
-        $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+     if(isset($_SERVER['player'])){
+   $arr=array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+ } else{
+ $arr=array("Home","About Us","Scheduler","Login", "SignUp","ConTact US","OverView");
+ }
+
         $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   
         $pageArr= explode("/",$pageURI); 
         $testint=0;

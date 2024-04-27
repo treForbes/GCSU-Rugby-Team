@@ -60,15 +60,16 @@
     <?php
     session_start();
     require_once 'RugbyTeamPageFormat.php';
-    if (isset($_SESSION['player'])) {
-        $arr = array("Home", "About Us", "Scheduler", "Login", "SignUp", "Contact Us", "Overview");
-    } else {
-        $arr = array("Home", "About Us", "Scheduler", "Login", "SignUp", "Contact Us", "Overview");
-    }
-    if (isset($_GET['errMsg'])) {
-        $m = $_GET['errMsg'];
-        echo "<h3 class=\"alert alert-warning\"> $m </h3>";
-    }
+     if(isset($_SESSION['admin'])) {
+    // User is logged in as an admin
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} elseif(isset($_SESSION['player'])) {
+    // User is logged in as a player
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+} else {
+    // User is not logged in
+    $arr = array("Home","About Us","Scheduler","Login", "SignUp","ConTact US","OverView");
+}
     $pageURI = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; // Determines which page the user is on
     $pageArr = explode("/", $pageURI); // At this point, '$pageURI' looks like this: "documents/code/Home.php"
     $currentPage = $pageArr[count($pageArr) - 1]; // this just selects the file name. E.g. "Home.php"

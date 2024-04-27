@@ -44,7 +44,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container-fluid">
     <?php
     // Display page header
-    $arr = array("Home", "Overview", "Scheduler", "About Us", "Contact Us", "Login", "SignUp");
+    $arr = array("Home", "Overview", "Scheduler", "About Us", "Contact Us","Logout");
     $pageURI = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     $pageArr = explode("/", $pageURI);
     $currentPage = $pageArr[count($pageArr) - 1];
