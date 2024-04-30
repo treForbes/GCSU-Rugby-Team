@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2024 at 09:44 PM
+-- Generation Time: May 01, 2024 at 12:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -65,7 +65,10 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_id`, `event_name`, `event_date`, `event_time`, `event_description`, `approval_status`) VALUES
-(1, 'football', '2002-01-30', '14:34:00', 'fun', 'pending');
+(20, 'coding ', '2002-03-03', '23:30:00', 'treforbes ', 'approved'),
+(21, 'football', '2024-03-20', '14:30:00', 'treforbes\r\n', 'approved'),
+(22, 'football', '2024-04-28', '23:30:00', 'come play ball ', 'approved'),
+(23, 'treis', '2024-04-30', '12:30:00', 'footbal is coll and fun', 'approved');
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,11 @@ CREATE TABLE `Players` (
 --
 
 INSERT INTO `Players` (`player_id`, `username`, `password`, `position`, `weight`, `email`, `phone_number`, `is_admin`, `team_id`, `first_name`, `last_name`) VALUES
-(1, 'JacobPhillips', '8cb2237d0679ca88db6464eac60da96345513964', NULL, NULL, 'Jacob.Phillips@bobcats.gcsu.edu', '7705330223', '1', 1, 'Jacob', 'Phillips ');
+(1, 'JacobPhillips', '8cb2237d0679ca88db6464eac60da96345513964', 'President ', NULL, 'Jacob.Phillips@bobcats.gcsu.edu', '7705330223', '1', 1, 'Jacob', 'Phillips '),
+(8, 'HarrisonSmy', '8cb2237d0679ca88db6464eac60da96345513964', 'Vice President', NULL, 'Harrison.Smy@bobcats.gcsu.edu', '7709255331', '1', 1, 'Harrison', 'Say'),
+(9, 'SydneyJoubert', '8cb2237d0679ca88db6464eac60da96345513964', 'Vice President ', NULL, 'Sydney.Joubert@bobcats.gcsu.edu', '5045089017', '1', 2, 'Sydney', 'Joubert '),
+(10, 'CiarraMunsey ', '8cb2237d0679ca88db6464eac60da96345513964', 'President ', NULL, 'Ciarra.munsey@bobcats.gcsu.edu', '7702355778', '1', 2, 'Ciarra ', 'Munsey'),
+(11, 'treforbes', 'Kuntrevous1', NULL, NULL, 'kuntrevous.forbes@bobcats.gcsu.edu', '6787611966', '0', 1, 'Kuntrevous', 'Forbes');
 
 -- --------------------------------------------------------
 
@@ -218,7 +225,7 @@ ALTER TABLE `Coaches`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `Matches`
@@ -230,7 +237,7 @@ ALTER TABLE `Matches`
 -- AUTO_INCREMENT for table `Players`
 --
 ALTER TABLE `Players`
-  MODIFY `player_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `player_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `Teams`
