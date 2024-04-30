@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_events'])) {
     }
 
     // Redirect back to the admin dashboard after approving events
-    header("Location: ./adminDashboard.php");
+    header("Location: ./AdminDashboard.php");
     exit();
 }
 

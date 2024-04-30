@@ -79,23 +79,41 @@
         <h5 class="login-form-title">Signup</h5>
         <form action="./SignupHandler.php" method="POST" onsubmit="return validateForm()">
             <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
+            <input type="text" id="fname" name="fname" onblur="validfName(this)" required>
+            <p id="fNameMsg"></p>
+
             <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required>
+            <input type="text" id="lname" name="lname" onblur="validlName(this)"required>
+            <p id="lNameMsg"></p>
+
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" onblur="validusername(blur)" required>
+            <p id="usernameMsg"></p>
+
             <label for="pwd">Password:</label>
-            <input type="password" id="pwd" name="pwd" required>
+            <input type="password" id="pwd" name="pwd" onblur="validPassword(this)"required>
+            <p id="pwdMsg"></p>
+
             <label for="cpwd">Confirm Password:</label>
             <input type="password" id="cpwd" name="cpwd" required>
+            <p id="cpwdMsg"></p>
+
             <label for="position">Position:</label>
             <input type="text" id="position" name="position" required>
+            <p id="posMsg"></p>
+
             <label for="weight">Weight:</label>
             <input type="number" id="weight" name="weight" required>
+            <p id="weightMsg"></p>
+
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required>
+            <p id="emailMsg"></p>
+
             <label for="phone">Phone number:</label>
             <input type="tel" id="phone" name="phone" required>
+            <p id="phoneMsg"></p>
+
             <label for="team">Team:</label>
             <select name="team" id="team">
               <option value="1">Boys Team</option>
@@ -106,9 +124,7 @@
         </form>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+
         <script>
     // Function to validate the form inputs
     function validateForm() {
@@ -124,7 +140,7 @@
         var team = document.getElementById("team").value;
 
         // Simple validation examples, you can expand as needed
-        if (fname.trim() == "") {
+        if (fname.trim() == ""||/[^a-zA-z]/.test(lname)) {
             alert("Please enter your first name");
             return false;
         }
@@ -166,7 +182,32 @@
         input.value = email;
         return input.validity.valid;
     }
+
+
+    function validfName(id)
+    {
+        let name=id.value.trim()
+        let fInfo = document.getElementById("fNameMsg")
+
+        if(name=="")
+        {
+            
+            fInfo.className="text-danger"
+            fInfo.innerHTML="Field must not be empty"
+            
+        }
+        else if(/[^a-zA-z]/.test(name))
+        {
+            
+            fInfo.className="text-danger"
+            fInfo.innerHTML="Field must only contain letters"
+        }
+
+    }
+
+
 </script>
+<script type="text/javascript" src="./js/validate.js"></script>
 
 </body>
 </html>

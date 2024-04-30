@@ -61,11 +61,17 @@ session_start();
     <?php
   
     require_once 'RugbyTeamPageFormat.php';
-  if(isset($_SERVER['player'])){
-   $arr=array("Home","About Us","Scheduler","Logout","SignUp","ConTact US","OverView");
+
+if(isset($_SESSION['admin']))
+{
+  $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview","AdminDashboard");
+}
+ else if(isset($_SESSION['player'])){
+   $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview");
  } else{
- $arr=array("Home","About Us","Scheduler","Login","SignUp","ConTact US","OverView");
+ $arr=array("Home","About Us","Scheduler","Login","SignUp","Contact US","Overview");
  }
+
  if(isset($_GET['errMsg'])){
     $m=$_GET['errMsg'];
     echo "<h3 class=\"alert alert-warning\"> $m </h3>";
@@ -92,5 +98,14 @@ session_start();
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
+  <script type="text/javascript">
+
+  
+
+   function validate()
+   {
+      
+   }
+  </script>
 </body>
 </html>
