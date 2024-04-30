@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin']) && !isset($_SESSION['player'])) {
+    // Redirect user to login page or display an error message
+    header("Location: login.php"); // Redirect to login page
+    exit(); // Stop further execution
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

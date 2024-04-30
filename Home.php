@@ -26,7 +26,7 @@ ini_set('display_errors', 1);
     $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
 } else {
     // User is not logged in
-    $arr = array("Home","About Us","Scheduler","Login", "SignUp","ConTact US","OverView");
+    $arr = array("Home","Login", "SignUp");
 }
     $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the use is on
     $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"

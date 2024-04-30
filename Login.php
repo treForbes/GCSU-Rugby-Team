@@ -69,7 +69,7 @@ if(isset($_SESSION['admin']))
  else if(isset($_SESSION['player'])){
    $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview");
  } else{
- $arr=array("Home","About Us","Scheduler","Login","SignUp","Contact US","Overview");
+ $arr=array("Home","Login","SignUp");
  }
 
  if(isset($_GET['errMsg'])){

@@ -2,6 +2,12 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+if (!isset($_SESSION['admin']) && !isset($_SESSION['player'])) {
+    // Redirect user to login page or display an error message
+    header("Location: login.php"); // Redirect to login page
+    exit(); // Stop further execution
+}
+
 ?>
 
 <!DOCTYPE html>
