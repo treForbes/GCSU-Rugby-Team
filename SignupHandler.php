@@ -45,11 +45,10 @@ if ($row == 0) {
     exit();
 }
 
-
 function fix_string($str)
 {
-  if (get_magic_quotes_gpc()) $str = stripslashes($str);
-  return real_escape_string($str);
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
+
 ?>
 

@@ -3,6 +3,13 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Check if the user is not an admin, redirect to another page or display an error message
+if (!isset($_SESSION['admin'])) {
+    // Redirect user to another page or display an error message
+    header("Location: access_denied.php"); // Redirect to access denied page
+    exit();
+}
+
 // Include necessary files and establish a database connection
 require_once 'RugbyTeamPageFormat.php';
 require_once 'DBRugbyFuncs.php';
@@ -56,7 +63,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container-fluid">
     <?php
     // Display page header
-    $arr = array("Home", "Overview", "Scheduler", "About Us", "Contact Us","Logout");
+    $arr = array("Home", "Scheduler", "Logout", "eventNames", "AdminDashboard");
     $pageURI = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     $pageArr = explode("/", $pageURI);
     $currentPage = $pageArr[count($pageArr) - 1];
@@ -118,6 +125,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 </body>
 </html>
+
 
 
 

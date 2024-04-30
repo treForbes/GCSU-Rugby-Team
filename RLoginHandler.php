@@ -5,13 +5,14 @@ ini_set('display_errors', 1);
 require_once 'DBRugbyFuncs.php';
 
 $pdo = connectDB();
-$name = fix_string($_POST['name']);
-$pwd = fix_string($_POST['pwd']);
+$name = $_POST['name'];
+$pwd = $_POST['pwd'];
 
 // Check if the user is an admin
-$sql = "SELECT * FROM Players WHERE username = '$name' AND password = SHA1('$pwd') AND is_admin = '1'";
-$admin_result = $pdo->query($sql);
-$admin_count = $admin_result->rowCount();
+$sql = "SELECT * FROM Players WHERE username = ? AND password = SHA1(?) AND is_admin = '1'";
+$admin_stmt = $pdo->prepare($sql);
+$admin_stmt->execute([$name, $pwd]);
+$admin_count = $admin_stmt->rowCount();
 
 if ($admin_count > 0) {
     // Admin login
@@ -20,9 +21,10 @@ if ($admin_count > 0) {
     exit();
 } else {
     // Check if the user is a customer
-    $sql = "SELECT * FROM Players WHERE username = '$name' AND password = ('$pwd')";
-    $player_result = $pdo->query($sql);
-    $player_count = $player_result->rowCount();
+    $sql = "SELECT * FROM Players WHERE username = ? AND password = ?";
+    $player_stmt = $pdo->prepare($sql);
+    $player_stmt->execute([$name, $pwd]);
+    $player_count = $player_stmt->rowCount();
     
     if ($player_count > 0) {
         // Customer login
@@ -35,16 +37,7 @@ if ($admin_count > 0) {
         header("Location: ./Login.php?errMsg=Incorrect Username or password");
         exit();
     }
-    
-    
-    function fix_string($str)
-{
-  if (get_magic_quotes_gpc()) $string = stripslashes($str);
-  return mysql_real_escape_string($str);
 }
-}
-
-
-
+?>
 
 
