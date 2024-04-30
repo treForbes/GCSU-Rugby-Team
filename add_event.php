@@ -1,4 +1,14 @@
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
+// Check if the user is not an admin, redirect to another page or display an error message
+if (!isset($_SESSION['admin'])) {
+    // Redirect user to another page or display an error message
+    header("Location: access_denied.php"); // Redirect to access denied page
+    exit();
+}
 <!doctype html>
 <html lang="en">
 <head>
