@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin']) && !isset($_SESSION['player'])) {
     require_once 'RugbyTeamPageFormat.php';
     if(isset($_SESSION['admin'])) {
     // User is logged in as an admin
-    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");
+    $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView", "eventNames", "AdminDashboard");
 } elseif(isset($_SESSION['player'])) {
     // User is logged in as a player
     $arr = array("Home","About Us","Scheduler","Logout","ConTact US","OverView");

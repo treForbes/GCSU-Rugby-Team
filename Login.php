@@ -64,7 +64,7 @@ session_start();
 
 if(isset($_SESSION['admin']))
 {
-  $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview","AdminDashboard");
+  $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview","AdminDashboard", "eventNames", "AdminDashboard");
 }
  else if(isset($_SESSION['player'])){
    $arr=array("Home","About Us","Scheduler","Logout","Contact Us","Oveview");
