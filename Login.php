@@ -85,11 +85,15 @@ if(isset($_SESSION['admin']))
   ?>
   <div class="login-form">
     <h5 class="login-form-title">Login</h5>
-    <form action="./RLoginHandler.php" method="POST">
+    <form action="./RLoginHandler.php" onsubmit="validateLoginForm()" method="POST">
         <label for="name">User Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="username" name="name" onblur='validUsername(this)'required>
+        <p id="usernameMsg"></p>
+
         <label for="pwd">Password:</label>
-        <input type="password" id="pwd" name="pwd" required>
+        <input type="password" id="pwd" name="pwd" onblur='validPassword(this)'required>
+        <p id="pwdMsg"></p>
+
         <button type="submit">Login</button>
     </form>
 </div>
@@ -98,14 +102,6 @@ if(isset($_SESSION['admin']))
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
-  <script type="text/javascript">
-
-  
-
-   function validate()
-   {
-      
-   }
-  </script>
+  <script type="text/javascript" src="./js/validate.js"> </script>
 </body>
 </html>
