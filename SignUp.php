@@ -78,7 +78,7 @@
     <br>
     <div class="login-form">
         <h5 class="login-form-title">Signup</h5>
-        <form action="./SignupHandler.php" method="POST" onsubmit="return validateForm()">
+        <form action="./SignupHandler.php" method="POST" onsubmit="return validateSignupForm()">
             <label for="fname">First Name:</label>
             <input type="text" id="fname" name="fname" onblur="validfName(this)" required>
             <p id="fNameMsg"></p>
@@ -88,7 +88,7 @@
             <p id="lNameMsg"></p>
 
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" onblur="validusername(blur)" required>
+            <input type="text" id="username" name="username" onblur="validUsername(this)" required>
             <p id="usernameMsg"></p>
 
             <label for="pwd">Password:</label>
@@ -96,23 +96,23 @@
             <p id="pwdMsg"></p>
 
             <label for="cpwd">Confirm Password:</label>
-            <input type="password" id="cpwd" name="cpwd" required>
+            <input type="password" id="cpwd" name="cpwd" onblur="validCPassword(this)" required>
             <p id="cpwdMsg"></p>
 
-            <label for="position">Position:</label>
-            <input type="text" id="position" name="position" required>
+            <!--<label for="position">Position:</label>
+            <input type="text" id="position" name="position" onblur="validPostion(this)" required>
             <p id="posMsg"></p>
 
             <label for="weight">Weight:</label>
             <input type="number" id="weight" name="weight" required>
-            <p id="weightMsg"></p>
+            <p id="weightMsg"></p>-->
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
+            <input type="text" id="email" name="email" onblur="validEmail(this)"required>
             <p id="emailMsg"></p>
 
             <label for="phone">Phone number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" onblur="validPhone(this)"required>
             <p id="phoneMsg"></p>
 
             <label for="team">Team:</label>

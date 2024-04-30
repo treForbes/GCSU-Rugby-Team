@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 require_once 'DBRugbyFuncs.php';
 
 $pdo = connectDB();
-$name = $_POST['name'];
-$pwd = $_POST['pwd'];
+$name = fix_string($_POST['name']);
+$pwd = fix_string($_POST['pwd']);
 
 // Check if the user is an admin
 $sql = "SELECT * FROM Players WHERE username = '$name' AND password = SHA1('$pwd') AND is_admin = '1'";
@@ -35,6 +35,13 @@ if ($admin_count > 0) {
         header("Location: ./Login.php?errMsg=Incorrect Username or password");
         exit();
     }
+    
+    
+    function fix_string($str)
+{
+  if (get_magic_quotes_gpc()) $string = stripslashes($str);
+  return mysql_real_escape_string($str);
+}
 }
 
 

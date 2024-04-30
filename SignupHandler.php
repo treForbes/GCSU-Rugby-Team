@@ -4,15 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'DBRugbyFuncs.php';
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$username = $_POST['username'];
-$password = $_POST['pwd'];
-$position = $_POST['position'];
-$weight = $_POST['weight'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$team_id = $_POST['team']; // Get the selected team ID from the form
+$fname = fix_string($_POST['fname']);
+$lname = fix_string($_POST['lname']);
+$username = fix_string($_POST['username']);
+$password = fix_string($_POST['pwd']);
+$position = null;
+$weight = null;
+$email = fix_string($_POST['email']);
+$phone = fix_string($_POST['phone']);
+$team_id = fix_string($_POST['team']); // Get the selected team ID from the form
 
 // Set is_admin to 0 for all new players
 $is_admin = '0';
@@ -43,6 +43,13 @@ if ($row == 0) {
 } else {
     header("Location: ./Login.php");
     exit();
+}
+
+
+function fix_string($str)
+{
+  if (get_magic_quotes_gpc()) $str = stripslashes($str);
+  return real_escape_string($str);
 }
 ?>
 
