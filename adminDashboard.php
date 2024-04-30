@@ -24,7 +24,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_events'])) {
     header("Location: ./AdminDashboard.php");
     exit();
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_event'])) {
+    // Retrieve the event ID to remove from the form data
+    $eventIdToRemove = $_POST['remove_event'];
 
+    // Remove the event from the database
+    $sql = "DELETE FROM events WHERE event_id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$eventIdToRemove]);
+
+    // Redirect back to the admin dashboard after removing the event
+    header("Location: ./AdminDashboard.php");
+    exit();
+}
 // Query all events from the database
 $sql = "SELECT * FROM events";
 $stmt = $pdo->query($sql);
@@ -83,6 +95,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo $event['event_time']; ?></td>
                                 <td><?php echo $event['event_description']; ?></td>
                                 <td>
+                                    <button type="submit" class="btn btn-danger" name="remove_event" value="<?php echo $event['event_id']; ?>">Remove Event</button>
                                     <?php if ($event['approval_status'] === 'pending') : ?>
                                         <input type="checkbox" name="approve_events[]" value="<?php echo $event['event_id']; ?>">
                                     <?php else : ?>
@@ -105,6 +118,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 </body>
 </html>
+
 
 
 
