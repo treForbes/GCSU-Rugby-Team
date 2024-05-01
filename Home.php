@@ -11,7 +11,7 @@
     <header>
         <?php
             require_once 'NEWRugbyTeamPageFormat.php';
-            $arr=array("Home","Overview","Scheduler","About Us","Contact Us","Login","Sign Up");
+            $arr=array("Home","Login","Sign Up");
             $pageURI=  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];   //Determines which page the user is on
             $pageArr= explode("/",$pageURI); //At this point, '$pageURI' looks like this: "documents/code/Home.php"
             $testint=0;
