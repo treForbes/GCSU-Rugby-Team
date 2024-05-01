@@ -1,44 +1,59 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
-
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
 h2 {
-  text-align: center;
-  color: #00703c; /* GCSU Green */
-  margin-bottom: 20px;
+    text-align: center;
+    color: #00703c; /* GCSU Green */
+    margin-bottom: 20px;
+}
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+.contact-info img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+.contact-info .contact-details {
+    flex: 1;
+    margin-left: 20px;
+}
+h3 {
+    color: #00703c; /* GCSU Green */
+}
+p {
+    margin: 5px 0;
+}
+span {
+    color: #555;
 }
 
-.photo-gallery {
-  margin-top: 20px; /* Add some space between header and photo-gallery */
+#current-photo {
+    transition: opacity 1s ease-in-out;
+    max-width: 50%;
+    height: auto;
 }
 
-.photo-gallery img {
-  max-width: 100%; /* Ensure the image stretches to its container */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Smooth border radius */
-}
-
-.overview-section {
-  padding-left: 20px; /* Add some padding to the overview section */
-}
-
-.overview-section h1 {
-  color: #00703c; /* GCSU Green */
-}
-
-.overview-section p {
-  margin-top: 10px; /* Add some space between heading and paragraph */
+#photo-container {
+    height: 50vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
